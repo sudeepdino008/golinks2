@@ -1,12 +1,12 @@
 # Golinks2
 
-I love the [golinks](https://github.com/GoLinks/golinks) project and thought that it's a decent project idea serving as a playground as well to learn django and other tech. The desired feature set is:
+I love the [golinks](https://github.com/GoLinks/golinks) project and thought that it's a decent project idea to implement while serving as a playground to learn django and other tech. The desired feature set is:
 - ability to save links
 - redirect to a link
 - list the links and search through it - use webassembly and rust for the search feature
 - have ability to specify the paths as aliases : `cs/papers/kafka` etc.
-- list subdirectories (for example, when you do `go/ref` 
-- add edit url 
+- list subdirectories (for example, when you do `go/ref`) 
+- edit url 
 
 
 This is meant to be a playground for trying new tech, so there'll be a lot of bells and whistles not necessary for the project, but the above fundamental aim should always work.
