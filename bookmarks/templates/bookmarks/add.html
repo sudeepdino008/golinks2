@@ -1,0 +1,8 @@
+<form action="{% url 'bookmarks:add_alias' alias_inp %}" method="post">
+  {% csrf_token %}
+  <fieldset>
+    <legend><h2>{{ alias_inp }}</h2></legend>
+    <input type="text" name="destination_url" placeholder="e.g: https://www.google.com/">
+  </fieldset>
+  <input type="submit" value="submit">
+</form>

@@ -1,0 +1,12 @@
+{% if bookmarks %}
+<ul>
+  {% for bookmark in bookmarks %}
+  <li>
+    <!-- the hrefs can directly goto the destination, but we might want to do some tracking on links clicked etc. So taking it through the golinks subdomain -->
+    <a href="/{{ bookmark.alias }}">{{ bookmark.alias }}</a> - <a href="/{{ bookmark.alias }}">{{ bookmark.destination }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p> No bookmarks are available now. </p>
+{% endif %}
