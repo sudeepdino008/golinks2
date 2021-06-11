@@ -1,18 +1,22 @@
 # Golinks2
 
 I love the [golinks](https://github.com/GoLinks/golinks) project and thought that it's a decent project idea to implement while serving as a playground to learn django and other tech. The desired feature set is:
-- ability to save links
-- redirect to a link
-- list the links and search through it - use webassembly and rust for the search feature
-- have ability to specify the paths as aliases : `cs/papers/kafka` etc.
-- list subdirectories (for example, when you do `go/ref`) 
-- edit url 
+- [x] ability to save links
+- [x] redirect to a link
+- [x] list the links
+- [ ] search through the available - use webassembly and rust for the search feature
+- [x] have ability to specify the paths as aliases : `cs/papers/kafka` etc.
+- :heavy_check_mark: list subdirectories (for example, when you do `go/ref`) 
+- :black_square_button: edit and delete url
+- [x] authenticated logins 
+- [] have the bookmarks associated with each user
 
 
 This is meant to be a playground for trying new tech, so there'll be a lot of bells and whistles not necessary for the project, but the above fundamental aim should always work.
 
 ## More ideas:
 - add logging framework
+- sharing the bookmarks or having user groups
 - containerize the application
 - It can also be extended to have a personal toolkit - `t/` is the toolkit subdomain, wherein the subdomains open in an embedded webview. For example: `t/epoch` takes you to the eopchconverter website in an embedded view. Hence, a "toolkit"
 - beautify the interface
