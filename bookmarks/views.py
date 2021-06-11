@@ -18,7 +18,6 @@ def index(request: HttpRequest):
     context = {
         'bookmarks': bookmarks,
     }
-    print(bookmarks)
     #return HttpResponse(template.render(context, request))
     return render(request, 'bookmarks/list.html', context)
 
@@ -42,7 +41,6 @@ def resolve(request: HttpRequest):
 
 @login_required
 def add_alias(request: HttpRequest, alias_inp: str):
-    print(request.user)
     destination_url = request.POST['destination_url']
     bookmark = Bookmarks(alias = alias_inp,
                          destination = destination_url,

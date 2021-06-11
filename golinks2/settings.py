@@ -12,9 +12,17 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
+import dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+## load parameters from .env
+dotenv_file = os.path.join(BASE_DIR, ".env")
+is_local_env = os.path.isfile(dotenv_file)
+if is_local_env:
+    dotenv.load_dotenv(dotenv_file)
 
 
 # Quick-start development settings - unsuitable for production
@@ -24,9 +32,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = is_local_env
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'golinks2.herokuapp.com']
 
 
 # Application definition
@@ -75,19 +83,22 @@ WSGI_APPLICATION = 'golinks2.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'golinks2',
-        'USER': 'golum',
-        'PASSWORD': 'mulog',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-        'TEST':{
-            'NAME':'golinks2-test'
-            },
-    },
-}
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=not is_local_env)
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'default',
+#         'USER': 'golum',
+#         'PASSWORD': 'mulog',
+#         'HOST': os.environ['DATABASE_URL'],
+#         'PORT': '5432',
+#         'TEST':{
+#             'NAME':'golinks2-test'
+#             },
+#     },
+# }
 
 
 # Password validation
@@ -127,6 +138,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = './bookmarks/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

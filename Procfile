@@ -1,0 +1,1 @@
+web: gunicorn golinks2.wsgi
