@@ -9,10 +9,8 @@ I love the [golinks](https://github.com/GoLinks/golinks) project and thought tha
 - ✅  list subdirectories (for example, when you do `go/ref`). 
 - edit and delete url. 
 - ✅  authenticated logins. 
-- have the bookmarks associated with each user. 
+- have the bookmarks associated with each user.
 
-
-This is meant to be a playground for trying new tech, so there'll be a lot of bells and whistles not necessary for the project, but the above fundamental aim should always work.
 
 ## More ideas:
 - add logging framework
