@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from django.urls import path, re_path, include
+from django.urls import path, re_path, include, reverse_lazy
+from django.views.generic import RedirectView
 
 urlpatterns = [
+    path('admin', RedirectView.as_view(url = '/admin/')),
     path('admin/', admin.site.urls),
-    path('accounts/login/', auth_views.LoginView.as_view()),
+    path('accounts/login', RedirectView.as_view(url = reverse_lazy('login_url'))),
+    path('accounts/login/', auth_views.LoginView.as_view(), name='login_url'),
     path('', include('bookmarks.urls'))
 ]

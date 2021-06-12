@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 import dotenv
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -78,6 +79,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'golinks2.wsgi.application'
+LOGIN_REDIRECT_URL = reverse_lazy('bookmarks:bookmark_list')
 
 
 # Database
