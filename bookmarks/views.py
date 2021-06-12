@@ -46,7 +46,7 @@ def add_alias(request: HttpRequest, alias_inp: str):
                          destination = destination_url,
                          mod_date = timezone.now())
     bookmark.save()
-    return redirect('bookmarks:index')
+    return redirect('bookmarks:bookmark_list')
     
     #expects alias and url (from form)
     #print('alias received: ', alias)
