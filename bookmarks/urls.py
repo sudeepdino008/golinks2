@@ -6,6 +6,6 @@ app_name = 'bookmarks'
 urlpatterns = [
     path('', RedirectView.as_view(url='/l')),
     path('l', views.index, name='bookmark_list'),
-    re_path(r'^add/(?P<alias_inp>[/\w+]*)/$', views.add_alias, name='add_alias'),
-    re_path(r'^\w+[/\w+]*$', views.resolve, name='resolve')
+    re_path(r'^add/(?P<alias_inp>[/\w+-]*)/$', views.add_alias, name='add_alias'),
+    re_path(r'^\w+[/\w+-]*$', views.resolve, name='resolve')
 ]

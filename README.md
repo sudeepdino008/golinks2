@@ -23,6 +23,9 @@ I love the [golinks](https://github.com/GoLinks/golinks) project and thought tha
 - use webassembly when introducing search
 - performance tests
 
+## bugs
+- ✅ "-" not supported in bookmark names
+
 ## usage
 <TODO>
 
