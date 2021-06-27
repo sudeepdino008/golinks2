@@ -10,6 +10,7 @@ I love the [golinks](https://github.com/GoLinks/golinks) project and thought tha
 - edit and delete url. 
 - ✅  authenticated logins. 
 - have the bookmarks associated with each user.
+- ✅ heirarchy of bookmarks
 
 
 ## More ideas:
@@ -22,12 +23,6 @@ I love the [golinks](https://github.com/GoLinks/golinks) project and thought tha
 - record search result performance (what rank search result is being selected?)
 - use webassembly when introducing search
 - performance tests
-
-## bugs
-- ✅ "-" not supported in bookmark names
-
-## usage
-<TODO>
 
 ---
 doubts:
