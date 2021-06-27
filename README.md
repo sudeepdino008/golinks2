@@ -24,6 +24,25 @@ I love the [golinks](https://github.com/GoLinks/golinks) project and thought tha
 - use webassembly when introducing search
 - performance tests
 
+## usage
+- golinks2 serves only authenticated users and you can create a superuser to login using python's manage.py.
+- you can use gunicorn to run a local server: `gunicorn wsgi.py`. You can also just use django's manage.py
+For gunicorn, the above command launches on port 8000 by default, you can set `PORT` environment variable for something different.
+- For convenience, you should add a search engine shortcut, so if you do something like `go/` and press tab, it'll activate golinks2 search. 
+![](docs/search_engine_alias.png)
+
+- you can then start adding bookmarks. For example, add the python documentation under `go/python` 
+![](docs/add_alias.png)
+
+Once added, you can goto the python reference using `go/python` 
+
+- you can list the aliases using `go/l`
+![](docs/list_aliases.png)
+
+- golinks2 supports directlory like structure for the aliases. For example, you might organise all references under `go/ref` and list them:
+![](docs/directory.png)
+
+
 ---
 doubts:
 - concurrency scenario in django - how are long running tasks handled? Does it block the further API use?
