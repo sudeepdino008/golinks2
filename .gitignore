@@ -3,3 +3,4 @@
 **/__pycache__/**
 .env
 bookmarks/static/admin/**
+**/.DS_Store
