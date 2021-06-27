@@ -27,16 +27,21 @@ def resolve(request: HttpRequest):
     print("serving request for", request.path, " original request:", alias)
     
     try:
+        ## try to resolve
         bookmark = Bookmarks.objects.get(is_deleted=False, alias=alias)
-    except Bookmarks.DoesNotExist:
-        bookmark = None
-    print(bookmark)
-    if bookmark != None:
         print("redirecting to", bookmark.destination)
         return redirect(bookmark.destination)
-
+    except Bookmarks.DoesNotExist:
+        ## try to find reference path
+        print('bookmark not found. cannot redirect')
+        sep_alias = alias+"/"   ## adding / to add heirarchy separation, we are not doing just substring matching
+        bookmarks = Bookmarks.objects.filter(is_deleted=False, alias__startswith=sep_alias)
+        if bookmarks:
+            print('sending bunch of bookmarks...')
+            return render(request, "bookmarks/list.html", {'bookmarks': bookmarks})
+        
     # bookmark is none - need to add
-    #return redirect('add_alias', alias)
+    print('no bookmark with given prefix, adding...')
     return render(request, 'bookmarks/add.html', { 'alias_inp' : alias})
 
 @login_required
@@ -47,10 +52,6 @@ def add_alias(request: HttpRequest, alias_inp: str):
                          mod_date = timezone.now())
     bookmark.save()
     return redirect('bookmarks:bookmark_list')
-    
-    #expects alias and url (from form)
-    #print('alias received: ', alias)
-    #return HttpResponse("ok")
 
 def normalize_path(request_path):
     start = 1 if request_path.startswith('/') else 0
