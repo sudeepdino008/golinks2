@@ -35,7 +35,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = is_local_env
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'golinks2.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'golinks2.herokuapp.com', 'golinks2-app-dev.ap-south-1.elasticbeanstalk.com']
 
 
 # Application definition
