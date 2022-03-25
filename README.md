@@ -28,7 +28,7 @@ python manage.py createsuperuser
 python manage.py makemigrations
 python manage.py migrate
 ```
-- you can use gunicorn to run a local server: `gunicorn wsgi.py`. You can also just use django's manage.py
+- you can use gunicorn to run a local server: `gunicorn golinks2.wsgi`. You can also just use django's manage.py
 For gunicorn, the above command launches on port 8000 by default, you can set `PORT` environment variable for something different.
 - For convenience, you should add a search engine shortcut, so if you do something like `go/` and press tab, it'll activate golinks2 search. 
 ![](docs/search_engine_alias.png)
