@@ -53,6 +53,7 @@ Once added, you can goto the python reference using `go/python`
 - beautify the interface
 - setup CI/CD (unit tests) only for the repo
 - record search result performance (what rank search result is being selected?)
+- avy style navigation when listing bookmarks in heirarchy
 - use webassembly when introducing search
 - performance tests
 
